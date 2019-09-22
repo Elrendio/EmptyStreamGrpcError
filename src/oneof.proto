@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package oneof;
+
+service Oneof {
+	rpc test(MessageWithOneof)
+		returns (Empty);
+}
+
+message MessageWithOneof {
+	oneof test_oneof {
+		int32 field1 = 1;
+		Case2 case2 = 2;
+	}
+}
+
+message Case2 {
+	int32 case2_field1 = 1;
+}
+
+message Empty {
+
+}
